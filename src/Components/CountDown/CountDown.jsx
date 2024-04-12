@@ -3,7 +3,7 @@ import style from "./CountDown.css"
 import StatusBox from "../StatusBox/StatusBox";
 import Info from "../Info/Info";
 export default function CountDown() {
-    const [inputDate, setInputDate] = useState(localStorage.getItem("inputDate")==null?localStorage.getItem('inputDate'): "")
+    const [inputDate, setInputDate] = useState(localStorage.getItem("inputDate") == null ?"": localStorage.getItem('inputDate') )
     const [days, setDays] = useState(0);
     const [hrs, setHrs] = useState(0)
     const [minutes, setMinutes] = useState(0)
@@ -47,30 +47,32 @@ export default function CountDown() {
         setTimeUp(false)
         const date = new Date(inputDate)
         const temp = new Date(date.getTime() - Date.now())
-        console.log(temp / (1000 * 60 * 60 * 24))
+        // console.log(temp / (1000 * 60 * 60 * 24))
         // debugger
-        if (temp < 0) { reset() }
+        if (temp < 0) { reset(); }
         else if (temp > 99 * 1000 * 60 * 60 * 24) {
-                localStorage.removeItem('inputDate')
-                localStorage.removeItem('temp')
-                setWarning(true);
-                reset();
-            } else {
-                if (inputDate != "" || inputDate != 0) {
-                    timeRemain()
-                    localStorage.setItem("inputDate", inputDate);
-                    localStorage.setItem("temp", temp);
-                }
+            localStorage.removeItem('inputDate')
+            localStorage.removeItem('temp')
+            setTimeUp(false)
+            setWarning(true);
+            reset();
+        } else {
+            if (inputDate != "" || inputDate != 0) {
+                timeRemain()
+                localStorage.setItem("inputDate", inputDate);
+                localStorage.setItem("temp", temp);
             }
+        }
     }
 
     useEffect(() => {
         if (localStorage.getItem("inputDate")) {
-            const date = new Date(inputDate)
+            const date = new Date(localStorage.getItem('inputDate'))
             const temp = new Date(date.getTime() - Date.now())
-            if (temp <= 0) {
+            // debugger
+            if (temp <= 0 ) {
                 localStorage.removeItem('inputDate')
-                setInputDate("")
+                setInputDate(0)
             }
         }
     }, [])
