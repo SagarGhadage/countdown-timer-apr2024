@@ -103,7 +103,7 @@ export default function CountDown() {
         <h1 className={style.heading}>Countdown <span className={style.headingpink}>Timer</span></h1>
 
         <form action="" className={style.cdForm} onSubmit={(e) => e.preventDefault()}>
-            <input type="datetime-local" className={style.inputdate} value={inputDate} onChange={(e) => {
+            <input type="datetime-local" disabled={isRunning} className={style.inputdate} value={inputDate} onChange={(e) => {
                 setInputDate(e.target.value);
                 console.log(inputDate)
             }} />
@@ -113,11 +113,11 @@ export default function CountDown() {
         {warning && <Info msg={"selected time is more than 100 Days"}></Info>}
         {timeUp && <Info msg={"🎉The countdown is over! What's next on your adventure?🎉"}></Info>}
 
-        <div className={style.timeLeftDetails}>
+        {!timeUp&&<div className={style.timeLeftDetails}>
             <StatusBox status={days} heading={"Days"}></StatusBox>
             <StatusBox status={hrs} heading={"Hours"}></StatusBox>
             <StatusBox status={minutes} heading={"Minutes"}></StatusBox>
             <StatusBox status={sec} heading={"Seconds"}></StatusBox>
-        </div>
+        </div>}
     </div>
 }
