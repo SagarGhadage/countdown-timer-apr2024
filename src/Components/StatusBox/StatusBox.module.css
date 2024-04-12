@@ -1,4 +1,4 @@
-.outputBox{
+.outputBox {
     font-size: 1.6rem;
     display: flex;
     flex-direction: column;
@@ -10,16 +10,47 @@
     padding: 2%;
     background-image: linear-gradient(to bottom left, #7cedff, #ce0bffe0);
 }
-h4{
+
+h4 {
     color: #bfe4fcc9;
 }
 @media only screen and (max-width: 512px) {
 
-    .outputBox{
-      width: 40%;
-      height:max-content;
-      flex-wrap: wrap;
-      margin-top: 1%;
-      margin: 1% 5%;
+    .outputBox {
+        width: 60%;
+        height: max-content;
+        flex-wrap: wrap;
+        margin-top: 1%;
+        margin: 1% 5%;
     }
+}
+@media only screen and (min-width: 512px) {
+
+    .outputBox {
+        width: 40%;
+        height: max-content;
+        flex-wrap: wrap;
+        margin-top: 1%;
+        margin: 1% 5%;
     }
+}
+
+@media only screen and (min-width: 768px ) {
+
+    .outputBox {
+        width:40%;
+        height: 20vh;
+        flex-wrap: wrap;
+        margin-top: 1%;
+        margin: 1% 5%;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .outputBox {
+        width:30vw;
+        height: 20vh;
+        flex-wrap: wrap;
+        margin-top: 1%;
+        margin: 1% 5%;
+    }
+}

@@ -107,3 +107,30 @@ input{
   /* flex-direction: column; */
 }
 }
+@media only screen and (max-width: 768px) {
+
+  .timeLeftDetails{
+    min-width: 80%;
+    width: 90vw;
+    flex-wrap: wrap;
+    margin-top: 1%;
+    /* font-size: inherit; */
+    /* flex-direction: column; */
+  }
+  }
+  @media only screen and (max-width: 992px) {
+    .timeLeftDetails{
+      min-width: 90%;
+      width: 90vw;
+      flex-wrap: wrap;
+
+    }
+  }
+  @media only screen and (min-width: 992px) {
+    .timeLeftDetails{
+      min-width: 90%;
+      width: 90vw;
+      /* flex-wrap: wrap; */
+
+    }
+  }
