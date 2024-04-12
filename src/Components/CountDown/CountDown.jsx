@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import style from "./CountDown.css"
+import style from "./CountDown.module.css"
 import StatusBox from "../StatusBox/StatusBox";
 import Info from "../Info/Info";
 export default function CountDown() {
@@ -76,6 +76,7 @@ export default function CountDown() {
             }
         }
     }, [])
+
     useEffect(() => {
         let id = setInterval(() => {
             const date = new Date(inputDate)

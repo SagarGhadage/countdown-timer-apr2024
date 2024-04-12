@@ -1,0 +1,15 @@
+.outputBox{
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10%;
+    width: 16%;
+    height: 63%;
+    padding: 2%;
+    background-image: linear-gradient(to bottom left, #7cedff, #ce0bffe0);
+}
+h4{
+    color: #bfe4fcc9;
+}
