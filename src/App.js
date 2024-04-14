@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import CountDown from './Components/CountDown/CountDown';
+import CountDown from './Components/CountDown/CountDownv1';
 
 function App() {
   return (

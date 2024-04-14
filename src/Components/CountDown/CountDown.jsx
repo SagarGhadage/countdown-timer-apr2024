@@ -3,7 +3,7 @@ import style from "./CountDown.module.css"
 import StatusBox from "../StatusBox/StatusBox";
 import Info from "../Info/Info";
 export default function CountDown() {
-    const [inputDate, setInputDate] = useState(localStorage.getItem("inputDate") == null ?"": localStorage.getItem('inputDate') )
+    const [inputDate, setInputDate] = useState(localStorage.getItem("inputDate") == null ? "" : localStorage.getItem('inputDate'))
     const [days, setDays] = useState(0);
     const [hrs, setHrs] = useState(0)
     const [minutes, setMinutes] = useState(0)
@@ -40,11 +40,13 @@ export default function CountDown() {
         setHrs(0)
         setMinutes(0)
         setSec(0)
+        // setWarning(false)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setTimeUp(false)
+        // setTimeUp(false)
+        setWarning(false)
         const date = new Date(inputDate)
         const temp = new Date(date.getTime() - Date.now())
         // console.log(temp / (1000 * 60 * 60 * 24))
@@ -70,7 +72,7 @@ export default function CountDown() {
             const date = new Date(localStorage.getItem('inputDate'))
             const temp = new Date(date.getTime() - Date.now())
             // debugger
-            if (temp <= 0 ) {
+            if (temp <= 0) {
                 localStorage.removeItem('inputDate')
                 setInputDate(0)
             }
@@ -84,14 +86,17 @@ export default function CountDown() {
             if (temp > 0) {
                 timeRemain()
                 setRuning(true)
+                setWarning(false)
                 console.log(days, timeUp)
             }
-            else {
-                if (sec == 0 && minutes == 0 && hrs == 0 && days == 0 && inputDate != "") {
+            else if (sec == 0 && minutes == 0 && hrs == 0 && days == 0 && inputDate != "") {
+                if(isRunning){
                     setTimeUp(true)
-                    setRuning(false)
                 }
-            }
+                    setRuning(false)
+                    setWarning(false)
+                }
+
         }, 1000)
 
         return () => clearInterval(id)
@@ -105,15 +110,16 @@ export default function CountDown() {
         <form action="" className={style.cdForm} onSubmit={(e) => e.preventDefault()}>
             <input type="datetime-local" disabled={isRunning} className={style.inputdate} value={inputDate} onChange={(e) => {
                 setInputDate(e.target.value);
+                setTimeUp(false)
                 console.log(inputDate)
             }} />
             {isRunning ? <button className={style.start} onClick={reset} >Cancel Timer</button> : <button type="submit" className={style.start} onClick={handleSubmit}>Start Timer</button>}
         </form>
 
-        {warning && <Info msg={"selected time is more than 100 Days"}></Info>}
+        {warning && (!isRunning) && <Info msg={"selected time is more than 100 Days"}></Info>}
         {timeUp && <Info msg={"🎉The countdown is over! What's next on your adventure?🎉"}></Info>}
 
-        {!timeUp&&<div className={style.timeLeftDetails}>
+        {!timeUp && !warning&&<div className={style.timeLeftDetails}>
             <StatusBox status={days} heading={"Days"}></StatusBox>
             <StatusBox status={hrs} heading={"Hours"}></StatusBox>
             <StatusBox status={minutes} heading={"Minutes"}></StatusBox>
