@@ -144,7 +144,10 @@ input:hover {
 }
 
 @media only screen and (max-width: 768px) {
-
+  .countdown{
+    padding: 15% 0 ;
+    justify-content: start;
+  }
   .timeLeftDetails {
     min-width: 80%;
     width: 90vw;
