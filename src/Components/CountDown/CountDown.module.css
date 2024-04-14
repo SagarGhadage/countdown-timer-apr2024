@@ -118,6 +118,9 @@ input:hover {
 }
 
 @media only screen and (max-width: 512px) {
+  input{
+    line-height: 2rem;
+  }
   .countdown {
     display: flex;
     flex-direction: column;
