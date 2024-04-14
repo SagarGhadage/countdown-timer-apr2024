@@ -77,9 +77,12 @@ h6 {
   padding: 5px 20px;
   background: transparent;
   color: white;
-}.start:active{
-  color:#ac04ff ;
 }
+
+.start:active {
+  color: #ac04ff;
+}
+
 .start:hover {
   border: 1px solid #ac04ff;
   padding: 6px 21px;
@@ -92,7 +95,8 @@ input {
   border-radius: 5px;
   background: transparent;
 }
-input:hover{
+
+input:hover {
   border: 2px solid #ac04ff;
 }
 
@@ -114,6 +118,17 @@ input:hover{
 }
 
 @media only screen and (max-width: 512px) {
+  .countdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    /* margin-top: auto; */
+    padding: 15% 0 ;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to bottom left, #81d9f0d4, #bd6bf8);
+  }
 
   .timeLeftDetails {
     min-width: 80%;
@@ -122,6 +137,7 @@ input:hover{
     margin-top: 1%;
     /* flex-direction: column; */
   }
+
 }
 
 @media only screen and (max-width: 768px) {
