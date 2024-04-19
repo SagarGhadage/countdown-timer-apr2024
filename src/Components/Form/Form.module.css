@@ -1,0 +1,43 @@
+.info{
+    color: #ac04ff;
+    font-size: larger;
+    font-weight: bold;
+}
+.start{
+    border: 1px solid white;
+    border-radius: 5px;
+    height: 2.5rem;
+    padding: 5px 20px;
+    background: transparent;
+    color: white;
+  }
+  
+  .start:active {
+    color: #ac04ff;
+  }
+  
+  .start:hover {
+    border: 1px solid #ac04ff;
+    padding: 6px 21px;
+  }
+  
+  input {
+    border: 1px solid white;
+    color: white;
+    line-height: 2em;
+    border-radius: 5px;
+    background: transparent;
+  }
+  
+  input:hover {
+    border: 2px solid #ac04ff;
+  }
+  
+  .cdForm {
+    display: flex;
+    width: 35vw;
+    height: 15vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }

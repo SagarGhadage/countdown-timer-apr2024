@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import style from "./CountDown.module.css"
 import StatusBox from "../StatusBox/StatusBox";
 import Info from "../Info/Info";
+import Form from "../Form/Form";
 export default function CountDown() {
 
     const [inputDate, setInputDate] = useState("")
@@ -67,7 +68,6 @@ export default function CountDown() {
         else if (timeRemaining.days > 99) {
             reset()
             setStatus(TimerStatus.INVALID)
-
         } else {
             setTimeLeft({ ...calcTimeRem(inputDate) })
             localStorage.setItem("inputDate", inputDate);
@@ -126,10 +126,10 @@ export default function CountDown() {
         {status == TimerStatus.TIMEUP && <Info msg={"🎉The countdown is over! What's next on your adventure?🎉"}></Info>}
         
         {(status == TimerStatus.RUNNING || status == TimerStatus.IDLE) && <div className={style.timeLeftDetails}>
-            <StatusBox status={timeLeft.days} heading={"Days"}></StatusBox>
-            <StatusBox status={timeLeft.hrs} heading={"Hours"}></StatusBox>
-            <StatusBox status={timeLeft.minutes} heading={"Minutes"}></StatusBox>
-            <StatusBox status={timeLeft.sec} heading={"Seconds"}></StatusBox>
+            <StatusBox time={timeLeft.days} heading={"Days"}></StatusBox>
+            <StatusBox time={timeLeft.hrs} heading={"Hours"}></StatusBox>
+            <StatusBox time={timeLeft.minutes} heading={"Minutes"}></StatusBox>
+            <StatusBox time={timeLeft.sec} heading={"Seconds"}></StatusBox>
         </div>}
     </div>
 }
